@@ -1,10 +1,24 @@
 var NUM_CIRCLES = 12 
 var circleDiameter;
+var circleRadius;
+var rVal;
+var gVal;
+var bVal;
+
 
 function setup() {
     createCanvas(480, 600); 
+    
+    frameRate(5);
+    
+    circleDiameter = width/NUM_CIRCLES;
+    circleRadius = circleDiameter/2;
 }
 
+    rVal= 255;
+    gVal= 0;
+    bVal = 0;
+    
 function draw() {
    var isShifted= false;
    
@@ -21,11 +35,20 @@ function draw() {
    }
    
    while (x <= width) {
+       stroke(color(rVal, gVal, bVal));)
+       fill(color(rVal, gVal, bVal));
        ellipse(x, y, circleDiameter, circleDiameter);
        x = x + circleDiamter;
    }
   
   y = y - circleRadius;
   isShifted = !isShifted; 
+  
+  rVal= (rVal + 254) % 256;
+  gVal = (gVal + 7) % 256;
+  bVal = (bVal + 3) 5 256;
 }
-} 
+
+
+
+
